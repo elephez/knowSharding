@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elephez.knowSharding.mapper.TimeMapper">
+    <insert id="add" parameterType="Time">
+        insert into time(name,time) values(#{name},#{time})
+    </insert>
+
+    <delete id="delete" parameterType="date">
+        delete from time where time = #{time}
+    </delete>
+
+    <update id="mod" parameterType="date">
+        update time name = #{name} where time = #{id}
+    </update>
+
+    <select id="que" parameterType="hashmap" resultType="Time">
+        select * from time where time between #{startTime} and #{endTime}
+    </select>
+</mapper>

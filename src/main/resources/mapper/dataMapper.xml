@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elephez.knowSharding.mapper.DataMapper">
+    <insert id="add" parameterType="Data">
+        insert into data(id,name,time) values(#{id},#{name},#{time})
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from data where id = #{id}
+    </delete>
+
+    <update id="mod" parameterType="Data">
+        update data set name = #{name}, time = #{time} where id = #{id}
+    </update>
+
+    <select id="que" parameterType="int" resultType="Data">
+        select * from data where id = #{id}
+    </select>
+</mapper>
